@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Search Contact">
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:Contact" size="small"></lightning-icon>        
+        </h3>                     
+        <div class="slds-grid slds-gutters slds-p-around_medium">
+            <div class="slds-col">
+                <lightning-input type="Search" placeholder="Search Text Here" class="inputText" onchange={handelChangeInput}>
+                </lightning-input>
+            </div>
+            <div class="slds-col slds-m-top_medium">
+                <lightning-button label="Search" onclick={handelSearchContact} disabled={enableSearchButton}></lightning-button>
+            </div>
+
+        </div>
+        <div class="slds-p-around_medium" style="height: 300px">
+            <lightning-datatable 
+            data={conData} 
+            columns={columnTable}
+             key-field="Id"
+             enable-infinite-loading 
+             onloadmore={loadMoreData}
+             ></lightning-datatable>
+        </div>
+        
+    </lightning-card>
+</template>

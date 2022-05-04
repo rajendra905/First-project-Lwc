@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+              <!-- <lightning-input  placeholder="Enter first Name" class='textBox'  id="firstName" data-first="input1"></lightning-input> -->
+              <lightning-input type="text" name="input1"  class="firstName" data-first="input1" value={firstValue} ></lightning-input>
+              <lightning-input type="text" name="input1"  class="secondName" data-second="input2" value={secondValue}></lightning-input>
+              <p>{Result}</p>
+              <lightning-button onclick={handleClick} label="Sumbit" value="submit" data-name="sumbit"></lightning-button>
+    </lightning-card>
+</template>

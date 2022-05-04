@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="GetObjectDetailsController" >
+    <aura:attribute name="objectOptions" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="showFiledName" type="Boolean" default="false"/>
+    <lightning:card title="Account Details" >
+        <div class="slds-m-around_medium">
+            <lightning:combobox style="width:50%" 
+                                placeholder="Select Object" 
+                                options="{! v.objectOptions }" 
+                                onchange="{! c.handleChangeObjectOptions }"
+                                />
+            <aura:if isTrue="{!v.showFiledName}">
+                <c:filedDetails aura:id='childCmp'></c:filedDetails>
+            </aura:if>
+        </div>
+    </lightning:card>
+    
+</aura:component>

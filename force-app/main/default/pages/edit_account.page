@@ -1,0 +1,162 @@
+<apex:page title="Account Edit" showHeader="false" controller="AccountDetailController"> 
+    <apex:sectionHeader title="Account Edit" subtitle="{!acc.Name }" />
+    <apex:form >
+        <apex:pageBlock title="Account Edit" >
+            
+            <apex:pageBlockButtons > 
+                
+                <apex:commandButton value="Save" action="{!UpdateAccount}">
+                    <apex:param name="detailid" value="{!acc.Id}"  assignTo="{!detailid}"/>
+                </apex:commandButton>
+                
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Account Information" collapsible="false" > 
+                
+                
+                <apex:PageBlockSectionItem >
+                    <apex:outputLabel >Account Owner</apex:outputLabel>
+                    
+                    <apex:outputText >{!acc.Id}</apex:outputText>
+                </apex:PageBlockSectionItem> 
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Rating</apex:outputLabel>
+                    <apex:inputField value="{!acc.Rating}"/>
+                    
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Name</apex:outputLabel>
+                    <apex:inputField value="{!acc.Name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Phone</apex:outputLabel>
+                    <apex:inputField value="{!acc.Phone}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Parent Account</apex:outputLabel>
+                    <apex:inputField value="{!acc.ParentId}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Fax</apex:outputLabel>
+                    <apex:inputField value="{!acc.Fax}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Number</apex:outputLabel>
+                    <apex:outputText >{!acc.AccountNumber}</apex:outputText>
+                    
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Website</apex:outputLabel>
+                    <apex:inputField value="{!acc.Website}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Site</apex:outputLabel>
+                    <apex:inputField value="{!acc.Site}"/>
+                    
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    
+                    <apex:outputLabel >Ownership</apex:outputLabel>
+                    <apex:inputField value="{!acc.Ownership}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Type</apex:outputLabel>
+                    <apex:inputField value="{!acc.Type}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Billing Address</apex:outputLabel>
+                    <apex:inputField value="{!acc.Billing_Address__c}"/>
+                </apex:pageBlockSectionItem>
+                
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Address Information" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Billing Street</apex:outputLabel>
+                    <apex:inputField value="{!acc.BillingStreet}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Shipping Street</apex:outputLabel>
+                    <apex:inputField value="{!acc.ShippingStreet}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Biling City </apex:outputLabel>
+                    <apex:inputField value="{!acc.ShippingStreet}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Shipping City</apex:outputLabel>
+                    <apex:inputField value="{!acc.ShippingCity}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Billing Zip/Postal Code</apex:outputLabel>
+                    <apex:inputField value="{!acc.BillingPostalCode}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Shipping Zip/Postal Code</apex:outputLabel>
+                    <apex:inputField value="{!acc.ShippingPostalCode}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Billing State/Province</apex:outputLabel>
+                    <apex:inputField value="{!acc.BillingState}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Billing State/Province</apex:outputLabel>
+                    <apex:inputField value="{!acc.ShippingState}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Billing Country</apex:outputLabel>
+                    <apex:inputField value="{!acc.BillingCountry}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Shipping Country</apex:outputLabel>
+                    <apex:inputField value="{!acc.ShippingCountry}"/>
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Additional Information" collapsible="false">
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Customer Priority</apex:outputLabel>
+                    <apex:inputField value="{!acc.CustomerPriority__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >SLA</apex:outputLabel>
+                    <apex:inputField value="{!acc.SLA__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >SLA Expiration Date	</apex:outputLabel>
+                    <apex:inputField value="{!acc.SLAExpirationDate__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >SLA Serial Number	</apex:outputLabel>
+                    <apex:inputField value="{!acc.SLASerialNumber__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Number of Locations</apex:outputLabel>
+                    <apex:inputField value="{!acc.NumberofLocations__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Upsell Opportunity</apex:outputLabel>
+                    <apex:inputField value="{!acc.UpsellOpportunity__c}"/>
+                </apex:pageBlockSectionItem>
+                
+                
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Description Information" collapsible="false" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Description
+                    </apex:outputLabel>
+                    <apex:inputField value="{!acc.Description}" style="width:45%;height:100px"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

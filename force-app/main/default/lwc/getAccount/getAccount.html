@@ -1,0 +1,67 @@
+<template>
+          <lightning-card title="Account List" class="slds-m-around_medium">
+                    <div class={flexipageRegionWidth}> 
+                              <!-- <lightning-button variant="Brand" label="Accounts" class="slds-align_absolute-center"
+                                        onclick={handleAccounts}></lightning-button> -->
+                              <button class="slds-button slds-button_neutral slds-align_absolute-center"
+                               onclick={handleAccounts}>Accounts</button>
+                    </div>
+
+                    <div class="slds-m-around_medium slds-scrollable_x">
+                              <template if:true={accountListShow}>
+                                        <div class="c-container slds-m-around_medium">
+                                                  <lightning-layout pull-to-boundary="medium">
+                                                            <lightning-layout-item>
+                                                                      <div class="custom-box slds-text-heading_smal">
+                                                                                <b>Name</b></div>
+                                                            </lightning-layout-item>
+                                                            <lightning-layout-item>
+                                                                      <div class="custom-box slds-text-heading_small">
+                                                                                <b>Account Number</b></div>
+                                                            </lightning-layout-item>
+                                                            <lightning-layout-item>
+                                                                      <div class="custom-box slds-text-heading_small">
+                                                                                <b>Phone</b></div>
+                                                            </lightning-layout-item>
+                                                            <lightning-layout-item>
+                                                                      <div class="custom-box slds-text-heading_small">
+                                                                                <b>Website</b></div>
+                                                            </lightning-layout-item>
+                                                            <lightning-layout-item>
+                                                                      <div class="custom-box slds-text-heading_small">
+                                                                                <b>Rating</b></div>
+                                                            </lightning-layout-item>
+                                                  </lightning-layout>
+                                        </div>
+                                        <template for:each={accountList} for:item="account">
+                                                  <div class="slds-m-around_medium" key={account}>
+                                                            <lightning-layout pull-to-boundary="medium">
+                                                                      <lightning-layout-item>
+                                                                                <div class="custom-box">
+                                                                                          <a>{account.Name}</a>
+                                                                                </div>
+                                                                      </lightning-layout-item>
+                                                                      <lightning-layout-item>
+                                                                                <div class="custom-box">
+                                                                                          {account.AccountNumber}</div>
+                                                                      </lightning-layout-item>
+                                                                      <lightning-layout-item>
+                                                                                <div class="custom-box">{account.Phone}
+                                                                                </div>
+                                                                      </lightning-layout-item>
+                                                                      <lightning-layout-item>
+                                                                                <div class="custom-box">
+                                                                                          {account.Website}</div>
+                                                                      </lightning-layout-item>
+                                                                      <lightning-layout-item>
+                                                                                <div class="custom-box">{account.Rating}
+                                                                                </div>
+                                                                      </lightning-layout-item>
+                                                            </lightning-layout>
+                                                  </div>
+                                        </template>
+                              </template>
+                    </div>
+
+          </lightning-card>
+</template>

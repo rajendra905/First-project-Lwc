@@ -1,0 +1,107 @@
+<apex:page title="Opportunity Edit"   sidebar="false"   showHeader="false" docType="html-5.0"   applyBodyTag="false" standardController="Opportunity">
+    <apex:sectionHeader title="Opportunity Edit" subtitle="{!Opportunity.Name }"/>
+    
+    <apex:form >
+        <apex:pageBlock tabStyle="Opportunity" title="Opportunity Edit" mode="Edit"  >
+            
+            <apex:pageBlockButtons > 
+                
+                <apex:commandButton value="Save" action="{!Save}"/>
+                <apex:commandButton value="Save & New"/>
+                <apex:commandButton value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Opportunity Information" collapsible="false" >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel > Opportunity Owner</apex:outputLabel>
+                    <apex:outputText >{!$User.FirstName} {!$User.LastName}</apex:outputText>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel > Amount</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.Amount}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel > Private</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.IsPrivate}" />  
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel > Close date</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.CloseDate}"/> 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Opportunity Name</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.Name}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Next Step</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.NextStep}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Name</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.AccountID}"/>
+                </apex:pageBlockSectionItem> 
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Stage</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.StageName}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Type</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.Type}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Probability (%)</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.Probability}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Lead Source</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.LeadSource}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Primary Campaign Source</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.CampaignID}"/>
+                </apex:pageBlockSectionItem>
+                
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Additional Information" collapsible="false" >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel > Order Number</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.OrderNumber__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel > Main Competitor(s)</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.MainCompetitors__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Current Generator(s)</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.CurrentGenerators__c}"/>  
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Delivery/Installation Status</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.DeliveryInstallationStatus__c}"/> 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Tracking Number</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.TrackingNumber__c}"/>
+                </apex:pageBlockSectionItem>
+                
+                
+                
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Description Information" collapsible="false" columns="1" >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Description</apex:outputLabel>
+                    <apex:inputField value="{!Opportunity.Description}" style="width:55%;height:100px"/>
+                </apex:pageBlockSectionItem>
+                
+                
+                
+                
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

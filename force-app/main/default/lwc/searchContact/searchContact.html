@@ -1,0 +1,49 @@
+<template>
+    <lightning-card class="slds-m-around_medium">
+          <div class="slds-m-around_medium">
+                    <div class="slds-grid slds-gutters">
+                              <div class="slds-col">
+                                        <lightning-input type="text">
+                                        </lightning-input>
+                              </div>
+                              <div class="slds-col">
+                                        <lightning-button  label="Success" class="slds-m-top_x-large"></lightning-button>
+                              </div>
+                              <div class="slds-col">
+                                        <lightning-combobox options={limitOptions}
+                                        value={limitvalue}
+                                        onchange={handleonoption}
+                                        ></lightning-combobox>
+                              </div>
+                              
+                    </div>
+                    
+          <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr>
+                           
+                           <th>Name</th>
+                            <th>Email</th>
+                            <th>Account Name</th>
+                            <th>Phone</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={allcontactdata} for:item="contact">
+                              
+                            <tr key={contact}>
+                              
+                                <td>{contact.Name}</td>
+                                <td>{contact.Email}</td>
+                                <td>{contact.Name}</td>
+                                <td >{contact.Phone}</td>
+                                <td>{contact.Type__c}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table> 
+          </div>
+          
+    </lightning-card>
+</template>

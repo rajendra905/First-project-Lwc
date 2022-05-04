@@ -1,0 +1,32 @@
+.custom-box {
+          text-align: center;
+          padding: 1rem;
+          border: 1px solid #d8dde6;
+          width: 18rem;
+          height: 3rem;
+}
+
+button{
+          color:white !important
+}
+.LARGE button{
+          background: blue;
+}
+
+.SMALL button{
+          background: yellow;
+          color: black !important;
+}
+.MEDIUM button{
+          background: green;
+}
+.community button{
+         background: red; 
+}
+
+/* @media screen and (min-width: 480px) {
+
+          .sbutton {
+                    background-color: black;
+          }
+} */

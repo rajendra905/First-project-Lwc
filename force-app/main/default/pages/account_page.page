@@ -1,0 +1,15 @@
+<apex:page showHeader="false"  sidebar="false" title="Account" controller="accountpageController">
+    <apex:form > 
+        <apex:actionFunction action="{!showAccount}" name="showContact"/>
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Account" collapsible="false" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Select </apex:outputLabel>
+                    <apex:selectList size="1" value="{!AccountName}" onChange="showContact();">
+                        <apex:selectOptions value="{!accountData}" ></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,44 @@
+<apex:page title="Account List" showHeader="false" controller="AccountController">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:variable var="rowNo" value="{!0}"/>
+                
+                    
+                <apex:pageBlockTable value="{!accountList}" var="account" style="padding:10px;" >
+                    <apex:column headerValue="Sr.No">
+                        <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                        {!rowNo}
+                    </apex:column>
+                    <apex:column headerValue="Action" style="padding:6px">
+                        <apex:commandLink value="Detail" action="{!detail}" >
+                            <apex:param name="detailid1" value="{!account.id}"  assignTo="{!detailid}"/>
+                        </apex:commandLink>
+                        <apex:outputText >|</apex:outputText>
+                        <apex:commandLink value="Edit" action="{!Editaccount}" >
+                             <apex:param name="Edit" value="{!account.id}"  assignTo="{!detailid}"/>
+                        </apex:commandLink>
+                        
+                        <apex:outputText >|</apex:outputText>
+                        
+                       <apex:commandLink value="Delete" action="{!DeteleAccount}">
+                        <apex:param name="Delete" value="{!account.id}"  assignTo="{!detailid}"/>
+                           </apex:commandLink>
+                        <apex:outputText >|</apex:outputText>
+                        <apex:commandLink value="Clone" action="{!CloneAccount}">
+                        	<apex:param name="Clone" value="{!account.id}"  assignTo="{!detailid}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column value="{!account.id}" style="padding:10px;"/>
+                    <apex:column value="{!account.Name}"/>
+                    <apex:column value="{!account.Rating}"/>
+                    <apex:column value="{!account.Phone}"/>
+                    <apex:column value="{!account.Website}"/>
+                    
+                </apex:pageBlockTable>
+                
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

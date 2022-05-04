@@ -1,0 +1,103 @@
+<apex:page title="Opportunity Detail" showHeader="false" standardController="Opportunity"> 
+    <apex:pageBlock title="Opportunity Detail" >
+        
+        <apex:pageBlockSection > 
+           
+           <apex:PageBlockSectionItem >
+                <apex:outputLabel >Opportunity Owner</apex:outputLabel>
+                <apex:outputText >{!Opportunity.OwnerID}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Amount</apex:outputLabel>
+                <apex:outputText >{!Opportunity.Amount}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Private</apex:outputLabel>
+                <apex:outputText >{!Opportunity.IsPrivate}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Expected Revenue</apex:outputLabel>
+                <apex:outputText >{!Opportunity.ExpectedRevenue}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Opportunity Name</apex:outputLabel>
+                <apex:outputText >{!Opportunity.Name}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Close Date</apex:outputLabel>
+                <apex:outputText >{!Opportunity.CloseDate}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Account Name</apex:outputLabel>
+                <apex:outputText >{!Opportunity.AccountID}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Next Step	
+                </apex:outputLabel>
+                <apex:outputText >{!Opportunity.NextStep}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Type</apex:outputLabel>
+                <apex:outputText >{!Opportunity.Type}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Stage</apex:outputLabel>
+                <apex:outputText >{!Opportunity.StageName}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Lead Source	
+                </apex:outputLabel>
+                <apex:outputText >{!Opportunity.LeadSource}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Probability (%)</apex:outputLabel>
+                <apex:outputText >{!Opportunity.Probability}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Order Number</apex:outputLabel>
+                <apex:outputText >{!Opportunity.OrderNumber__c}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Primary Campaign Source</apex:outputLabel>	
+                
+                <apex:outputText >{!Opportunity.CampaignID}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Main Competitor(s)</apex:outputLabel>	
+                
+                <apex:outputText >{!Opportunity.MainCompetitors__c}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Current Generator(s)</apex:outputLabel>
+                <apex:outputText >{!Opportunity.CurrentGenerators__c}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Delivery/Installation Status</apex:outputLabel>
+                <apex:outputText >{!Opportunity.DeliveryInstallationStatus__c}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Tracking Number</apex:outputLabel>
+                <apex:outputText >{!Opportunity.TrackingNumber__c}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Created By	
+                </apex:outputLabel>
+                <apex:outputText >{!Opportunity.CreatedByID}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Last Modified By</apex:outputLabel>
+                <apex:outputText >{!Opportunity.LastModifiedByID}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            <apex:PageBlockSectionItem >
+                <apex:outputLabel >Description	
+                </apex:outputLabel>
+                <apex:outputText >{!Opportunity.Description}</apex:outputText>
+            </apex:PageBlockSectionItem>
+            
+            
+            
+            
+        </apex:pageBlockSection>
+            
+    </apex:pageBlock>
+</apex:page>

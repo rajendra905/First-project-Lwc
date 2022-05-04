@@ -1,0 +1,8 @@
+<apex:page showHeader="false" standardController="Contact"> 
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            Hello
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+</apex:page>

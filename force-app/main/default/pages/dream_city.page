@@ -1,0 +1,42 @@
+<apex:page showHeader="false"  sidebar="false" title="Deram City" controller="DreamController">
+    <apex:form > 
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Dream City" collapsible="false" columns="3">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >City Select </apex:outputLabel>
+                     <apex:selectList size="1" value="{!cityname}">
+                          <apex:selectOption itemValue="" itemLabel="--None--"></apex:selectOption>
+                        <apex:selectOption itemValue="ajmer"  itemLabel="Ajmer"></apex:selectOption>
+                        <apex:selectOption itemValue="jaipur"  itemLabel="Jaipur"></apex:selectOption>
+                        <apex:selectOption itemValue="udaipur"  itemLabel="Udaipur"></apex:selectOption>
+                        <apex:selectOption itemValue="kota"  itemLabel="Kota"></apex:selectOption>
+                        <apex:selectOption itemValue="Alwar"  itemLabel="Alwar"></apex:selectOption>
+                        <apex:selectOption itemValue="bhilwara"  itemLabel="Bhilwara"></apex:selectOption>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                      <apex:outputLabel >Enter City Name </apex:outputLabel>
+                     <apex:inputText value="{!citynameText}"/>
+                    
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                     
+                    <apex:commandButton value="Add"  action="{!addCity}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:variable var="rowNo" value="{!0}"/>
+            <apex:pageBlockTable value="{!city}" var="city">
+                <apex:column headerValue="Sr.No"  >
+                    <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                    {!rowNo}
+                </apex:column>
+                <apex:column headerValue="City Name " value="{!city}"/>
+                <apex:column headerValue="Action" style="padding:6px">
+                    <apex:commandLink value="Remove" action="{!removeCity}">
+                        <apex:param name="remove" value="{!rowNo}"  assignTo="{!rowNo}"/>
+                    </apex:commandLink>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

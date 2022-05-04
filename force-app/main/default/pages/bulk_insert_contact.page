@@ -1,0 +1,31 @@
+<apex:page title="Bulk Insert Contact" showHeader="false" controller="BulkInsertContactController" >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}" immediate="false" style="float:centre"/>
+                <apex:commandButton value="AddNew" action="{!addRow}" immediate="true" style="float:centre"/>
+                <apex:commandButton value="Remove" action="{!removeRow}" immediate="true" style="float:centre"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" immediate="true" style="float:centre"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" title="Insert Data" collapsible="false">
+                <apex:variable var="rowNo" value="{!0}"/>
+                <apex:pageBlockTable value="{!contactData}" var="contact">
+                    <apex:column headerValue="Sr.No">
+                        <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                        {!rowNo}
+                    </apex:column>
+                    <apex:column headerValue="First Name" >
+                        <apex:inputField value="{!contact.FirstName}" />
+                    </apex:column>
+                    <apex:column headerValue="Last Name" >
+                        <apex:inputField value="{!contact.LastName}" />
+                    </apex:column>
+                    <apex:column headerValue="Account Name" >
+                        <apex:inputField value="{!contact.AccountId}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

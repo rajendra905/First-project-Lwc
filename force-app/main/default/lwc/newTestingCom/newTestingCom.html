@@ -1,0 +1,36 @@
+<template>
+          <lightning-card  class = "slds-m-around_large"  title="Contact CustomTable Fieldset Display">
+              <div class="slds-m-around_large ">    
+                  <div class="slds-media__body">
+              <!--Contact List table starts-->
+                  <div class="tableDiv">
+                      <div class={tableStyle}>
+                          <table aria-describedby="contact-list" class="slds-table  slds-table_bordered ">
+                              <!--Header of the table-->
+                              <thead>
+                                  <!-- <tr class="slds-line-height_reset"> -->
+                                  <template for:each={fulData} for:item="column" for:index="indexVar"> 
+                                      <th scope="col" key ={column}>
+                                          {column.label} // here i have to get field api names but i cant give label beacuse i havnt gave it any where in js
+                                      </th>
+                                      
+                                  </template>
+                              </tr>        
+                              </thead>        
+                           <tbody>
+                                  <!-- <template for:each={tableData} for:item="item" for:index="indexVar">
+                                      
+                                      <tr key={item.Id} class="slds-hint-parent">
+                                          
+                                          <template for:each=colList>
+                                        <c-f-s-child-custom-table col=col record= item></td>
+                                      </tr> 
+                                  </template> -->
+                              </tbody> 
+                          </table>
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+          </lightning-card>
+          </template>

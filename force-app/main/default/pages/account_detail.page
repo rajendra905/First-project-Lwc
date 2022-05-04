@@ -1,0 +1,70 @@
+<apex:page title="Account Detail" showHeader="false" controller="AccountDetailController"> 
+    <apex:sectionHeader title="Account Detail" subtitle="{!acc.Name}" />
+  	<apex:form >
+          <apex:pageBlock title="Account Detail" >
+              <apex:pageBlockButtons > 
+                
+                <apex:commandButton value="Back" action="{!Cancel}">
+                    
+                </apex:commandButton>
+               
+
+            </apex:pageBlockButtons>
+        
+        <apex:pageBlockSection > 
+            
+           
+           <apex:PageBlockSectionItem >
+                <apex:outputLabel >Account Owner</apex:outputLabel>
+                <apex:outputText >{!acc.Id}</apex:outputText>
+            </apex:PageBlockSectionItem> 
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Rating</apex:outputLabel>
+                <apex:outputText >{!acc.Rating}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Account Name</apex:outputLabel>
+                <apex:outputText >{!acc.Name}</apex:outputText>
+             </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Phone</apex:outputLabel>
+                <apex:outputText >{!acc.Phone}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Parent Account</apex:outputLabel>
+                <apex:outputText >{!acc.ParentId}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Fax</apex:outputLabel>
+                <apex:outputText >{!acc.Fax}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Account Number</apex:outputLabel>
+                <apex:outputText >{!acc.AccountNumber}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Website</apex:outputLabel>
+                <apex:outputText >{!acc.Website}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Account Site</apex:outputLabel>
+                <apex:outputText >{!acc.Site}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Ownership</apex:outputLabel>
+                <apex:outputText >{!acc.Ownership}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Type</apex:outputLabel>
+                <apex:outputText >{!acc.Type}</apex:outputText>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Billing Address</apex:outputLabel>
+                <apex:outputText >{!acc.Billing_Address__c}</apex:outputText>
+            </apex:pageBlockSectionItem>
+         
+        </apex:pageBlockSection>
+            
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

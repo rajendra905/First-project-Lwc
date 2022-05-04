@@ -1,0 +1,43 @@
+<apex:page controller="ContactControllerWithAttachment" showHeader="false" sidebar="false">
+    <apex:form id="pb">
+        <apex:messages />
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Email Assignment" collapsible="false" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Select Contact</apex:outputLabel>
+                    <apex:selectList size="1" value="{!NameList}" >
+                        <apex:selectOptions value="{!Names}"></apex:selectOptions>
+                        
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:commandButton value="Add" action="{!addContact}"  reRender="pb"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1" collapsible="false">
+                <apex:pageBlockTable value="{!contactWrapperList}" var="contact" >
+                    <apex:column >
+                        <apex:facet name="header">
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!contact.selected}" id="inputId">
+                            <apex:actionSupport event="onchange" action="{!displaySelected}" reRender="pb"/>
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column value="{!contact.con.Name}" />
+                    <apex:column value="{!contact.con.Email}" />
+                    <apex:column >
+                         <apex:repeat value="{!contact.con.Attachments}" var="attach">
+                        <apex:outputField value="{!attach.Name}"/>
+                    </apex:repeat>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Send" action="{!send}" reRender="pd" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:inputCheckbox value="{!withAttach}">With Attachments</apex:inputCheckbox>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,46 @@
+<apex:page title="Customer List" showHeader="false" Controller="MyCustomerController">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:variable var="rowNo" value="{!0}"/>
+                
+                
+                <apex:pageBlockTable value="{!customerList}" var="customer" style="padding:10px;" >
+                    <apex:column headerValue="Sr.No">
+                        <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                        {!rowNo}
+                    </apex:column>
+                    <apex:column headerValue="Action" style="padding:6px">
+                        <apex:commandButton value="Detail" action="{!DetailCustomer}" reRender="pbt">
+                             <apex:param name="Detail" value="{!customer.id}"  assignTo="{!customerid}"/>
+                        </apex:commandButton>
+                      
+                        <apex:commandButton value="Edit" action="{!EditCustomer}" reRender="pbt">
+                              <apex:param name="Edit" value="{!customer.id}"  assignTo="{!customerid}"/>
+                        </apex:commandButton>
+                       	
+                       
+                        
+                       <apex:commandButton value="Delete" action="{!DeteleCustomer}" reRender="pbt">
+                        <apex:param name="Delete" value="{!customer.id}"  assignTo="{!customerid}"/>
+                           </apex:commandButton>
+                       
+                        <apex:commandButton value="Clone" action="{!CloneCustomer}" reRender="pbt" >
+                            <apex:param name="Clone" value="{!customer.id}"  assignTo="{!customerid}"/>
+                        </apex:commandButton>
+                    </apex:column>
+                    
+                    <apex:column value="{!customer.Name}"/> 
+                    <apex:column value="{!customer.First_Name__c}"/>
+                    <apex:column value="{!customer.Last_Name__c}"/>
+                    <apex:column value="{!customer.Address__c}"/>
+                    
+                    
+                    
+                </apex:pageBlockTable>
+                
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

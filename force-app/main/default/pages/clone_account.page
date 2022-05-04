@@ -1,0 +1,116 @@
+<apex:page title="Clone Account" showHeader="false" controller="AccountDetailController"> 
+    <apex:sectionHeader title="Account Clone" subtitle="{!acc.Name }" />
+    <apex:form >
+        <apex:pageBlock title="Account Clone" >
+            
+            <apex:pageBlockButtons > 
+                
+                <apex:commandButton value="Clone" action="{!CloneAccount}">
+                    <apex:param name="clone" value="{!acc.Id}"  assignTo="{!detailid}"/>
+                </apex:commandButton>
+                
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Account Information" collapsible="false" > 
+                
+                
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Rating</apex:outputLabel>
+                    <apex:inputField value="{!acc.Rating}"/>
+                    
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Name</apex:outputLabel>
+                    <apex:inputField value="{!acc.Name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Phone</apex:outputLabel>
+                    <apex:inputField value="{!acc.Phone}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Parent Account</apex:outputLabel>
+                    <apex:inputField value="{!acc.ParentId}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Fax</apex:outputLabel>
+                    <apex:inputField value="{!acc.Fax}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Number</apex:outputLabel>
+                    <apex:outputText >{!acc.AccountNumber}</apex:outputText>
+                    
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Website</apex:outputLabel>
+                    <apex:inputField value="{!acc.Website}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Account Site</apex:outputLabel>
+                    <apex:inputField value="{!acc.Site}"/>
+                    
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    
+                    <apex:outputLabel >Ownership</apex:outputLabel>
+                    <apex:inputField value="{!acc.Ownership}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Type</apex:outputLabel>
+                    <apex:inputField value="{!acc.Type}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Billing Address</apex:outputLabel>
+                    <apex:inputField value="{!acc.Billing_Address__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Industry</apex:outputLabel>
+                    <apex:inputField value="{!acc.Industry}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel > Annual Revenue</apex:outputLabel>
+                    <apex:inputField value="{!acc.AnnualRevenue}"/>
+                </apex:pageBlockSectionItem>
+                
+               
+                
+               	<apex:pageBlockSectionItem >
+                    <apex:outputLabel > Billing Address	</apex:outputLabel>
+                    <apex:inputField value="{!acc.Billing_Address__c}"/>
+                </apex:pageBlockSectionItem>
+              
+                
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Customer Priority</apex:outputLabel>
+                    <apex:inputField value="{!acc.CustomerPriority__c}"/>
+                </apex:pageBlockSectionItem>
+                
+                
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLabel >SLA	</apex:outputLabel>
+                    <apex:inputField value="{!acc.SLA__c}"/>
+                </apex:pageBlockSectionItem>
+                
+                	
+                
+                
+                
+                	
+                
+                
+                
+                
+                
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

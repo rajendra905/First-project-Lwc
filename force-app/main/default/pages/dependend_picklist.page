@@ -1,0 +1,39 @@
+<apex:page showHeader="false"  sidebar="false" title="Dependend Picklist" controller="PicklistController">
+    <apex:form >
+        <apex:actionFunction action="{!Addcountry}" name="getcountry"/>
+        <apex:actionFunction action="{!AddState}" name="getstate"/>
+        <apex:actionFunction action="{!AddCity}" name="getcity"/>
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Country" collapsible="false" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Select Country</apex:outputLabel>
+                    <apex:selectList size="1" value="{!getcountry}" onChange="getcountry();" >
+                        <apex:selectOptions value="{!country}" ></apex:selectOptions>
+                       </apex:selectList>
+                </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+             <apex:pageBlockSection title="State" collapsible="false" columns="3">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Select State</apex:outputLabel>
+                    <apex:selectList size="1" value="{!getstate}" onChange="getstate();" >
+                        <apex:selectOptions value="{!state}"></apex:selectOptions>
+                        </apex:selectList>
+                </apex:pageBlockSectionItem>
+               </apex:pageBlockSection>
+              <apex:pageBlockSection title="City" collapsible="false" columns="3">
+                <apex:pageBlockSectionItem >
+                      <apex:outputLabel >Select City</apex:outputLabel>
+                    <apex:selectList size="1" value="{!getcity}" onChange="getcity();">
+                        <apex:selectOptions value="{!city}"></apex:selectOptions>
+                           </apex:selectList>
+                </apex:pageBlockSectionItem>
+             </apex:pageBlockSection>
+             <apex:pageBlockSection title="PinCode" collapsible="false" columns="3">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Select Pincode</apex:outputLabel>
+                    <apex:outputText >{!pincode}</apex:outputText>
+                </apex:pageBlockSectionItem>
+                 </apex:pageBlockSection>
+             </apex:pageBlock>
+    </apex:form>
+</apex:page>

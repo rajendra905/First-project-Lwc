@@ -1,0 +1,70 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close">
+                        </use>
+                    </svg>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-03" class="slds-modal__title slds-hyphenate">Task Details</h2>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_9-of-12">
+                        <lightning-input  placeholder="Type Subject"
+                            style="width:100%; margin:2%; " class="slds-text-title slds-hyphenate inputSubject">
+                        </lightning-input>
+                    </div>
+                    <lightning-button icon-name="utility:add" onclick={handleTaskAdd}
+                        style="padding:23px;"></lightning-button>
+                </div>
+            </header>
+            <div class="slds-modal__content" id="modal-content-id-1" >
+                <table class="slds-table  slds-table_bordered slds-no-row-hover slds-m-around_medium">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col ">
+                                <div class="slds-truncate" >Subject</div>
+                            </th>
+                            <th  scope="col">
+                                <div class="slds-truncate">Date</div>
+                            </th>
+                            <th scope="col" colspan="2">
+                                <div class="slds-truncate" style="align-items: center;">Action</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={alltasklist} for:item="task">
+                            <tr key={task.Id} class={task.rowSelected}>
+                                <td>
+                                    <output data-toggle="tooltip" data-placement="bottom" title={task.Description}
+                                    onmouseover={handleMouse}>{task.Subject}</output>
+                                </td>            
+                                <td>
+                                    <div class="slds-truncate">{task.CreatedDate}</div>
+                                </td>
+                                <td>
+                                    <template if:true={task.showCheckbox}>
+                                            <lightning-input type="checkbox" value={task.Id}
+                                                onchange={handleTaskComplete} checked={taskChecked} style="float: left;" ></lightning-input>
+                                        </template>
+                                </td>
+                                <td>
+                                    <lightning-button-icon icon-name="utility:delete" value={task.Id}
+                                            onclick={handleTaskDelete} style="float: left;" ></lightning-button-icon>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={isTaskClose}>Cancel</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

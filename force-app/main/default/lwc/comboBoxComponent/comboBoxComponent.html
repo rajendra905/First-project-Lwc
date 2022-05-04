@@ -1,0 +1,46 @@
+<template>
+    <lightning-combobox
+          label="City"
+          value={getCityNameValue}
+          options={getCityNames}
+          
+          onchange={handelCityName}
+    ></lightning-combobox>
+
+    <table if:true={singleData}>
+              <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>MailingCity</th>
+              </thead>
+              <tbody>
+                    <template  for:each={contactList} for:item="contact">
+                              <tr key={contact}>
+                                        <td>{contact.Name}</td>
+                                        <td>{contact.Email}</td>
+                                        <td>{contact.MailingCity}</td>
+
+                              </tr>
+                    </template>
+              </tbody>
+    </table>
+
+    <table if:true={allDetailContact}>
+          <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>MailingCity</th>
+          </thead>
+          <tbody>
+                <template  for:each={detailContact.data} for:item="contact">
+                          <tr key={contact}>
+                                    <td>{contact.Name}</td>
+                                    <td>{contact.Email}</td>
+                                    <td>{contact.MailingCity}</td>
+
+                          </tr>
+                </template>
+          </tbody>
+</table>
+   
+</template>

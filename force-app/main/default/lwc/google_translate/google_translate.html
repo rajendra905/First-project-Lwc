@@ -1,0 +1,41 @@
+<template>
+          <lightning-card title="Google Translate">
+                    <div class="slds-m-aroun_medium">
+                              <lightning-layout multiple-rows >
+                                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="6"
+                                                  large-device-size="5" padding="horizontal-small">
+                                                  <div class="custom-box">
+                                                            <lightning-combobox label="Select Language"
+                                                                      options={languageOption}
+                                                                      onchange={hnadelSelectedLanguge}
+                                                                      
+                                                                      >
+                                                            </lightning-combobox>
+                                                            <lightning-textarea placeholder="Enter Text"
+                                                                      class="forInput" required disabled={enterText}>
+                                                            </lightning-textarea>
+                                                  </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="6"
+                                                  large-device-size="2" padding="horizontal-small">
+                                                  <div class="custom-box" style=" text-align:center; padding-top:50px">
+                                                            <lightning-button value="Translate" label="Translate"
+                                                                      onclick={handelTranslate}></lightning-button>
+                                                  </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="6"
+                                                  large-device-size="5" padding="horizontal-small">
+                                                  <div class="custom-box">
+                                                            <lightning-combobox label="Translate To Language"
+                                                                      options={languageOption}
+                                                                      onchange={handelLanguage}>
+                                                            </lightning-combobox>
+                                                            <lightning-textarea placeholder="Transale Text"
+                                                                      value={translateText} disabled="true">
+                                                            </lightning-textarea>
+                                                  </div>
+                                        </lightning-layout-item>
+                              </lightning-layout>
+                    </div>
+          </lightning-card>
+</template>

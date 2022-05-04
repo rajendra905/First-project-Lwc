@@ -1,0 +1,44 @@
+<apex:page title="Opportunity List" showHeader="false" standardController="Opportunity" recordSetVar="opportunity" >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                
+                <apex:inputHidden value="{!pageNumber}" />
+                <apex:inputHidden value="{!pageSize}"/>
+                
+                
+                <apex:variable var="rowNo" value="{!(pageNumber - 1) * pageSize}"/>
+                <apex:pageBlockTable value="{!opportunity}" var="opp">
+                    <apex:column headerValue="Sr.No">
+                        <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                        {!rowNo}
+                    </apex:column>
+                    <apex:column headerValue="Action" style="padding:6px">
+                        <apex:commandLink value="Detail" action="/apex/detail_opportunity?id={!opp.id}"/>
+                        <apex:outputText >|</apex:outputText>
+                        <apex:commandLink value="Edit" action="/apex/edit_opportunity?id={!opp.id}"/>
+                        <apex:outputText >|</apex:outputText>
+                        <apex:commandlink value="Delete" action="{!URLFOR($Action.Opportunity.Delete,opp.id)}">
+                            
+                        </apex:commandlink>
+                        
+                    </apex:column>
+                    <apex:column value="{!opp.Name}"/>
+                    <apex:column value="{!opp.AccountID}"/>
+                    <apex:column value="{!opp.Amount}"/>
+                    <apex:column value="{!opp.CloseDate}"/>
+                    <apex:column value="{!opp.StageName}"/>
+                    <apex:column value="{!opp.OwnerID}"/>
+                </apex:pageBlockTable>
+                <apex:panelGroup >
+                    <apex:commandButton value="First" action="{!first}" disabled="{!pageNumber == 1}"/>
+                                                                          
+                    <apex:commandButton value="Previous" action="{!previous}" disabled="{!pageNumber == 1}" />
+                    <apex:commandButton value="Next" action="{!next}"  disabled="{!pageNumber== 2}"/>
+                    <apex:commandButton value="Last" action="{!last}" disabled="{!pageNumber== 2}"/>
+                </apex:panelGroup>
+            </apex:pageBlockSection>
+            {!resultSize}
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="GetObjectDetailsController" >
+    
+    <aura:method name="sampleMethod" action="{!c.sampleMethod}" access="public"> 
+        <aura:attribute name="selectedObjectName" type="String"/> 
+         <aura:attribute name="seletedFiledQuery" type="String"/> 
+         <aura:attribute name="seletedFiledName" type="List"/> 
+         
+    </aura:method>
+    
+    
+    <aura:attribute name="selectedobject" type="String" />
+    <aura:attribute name="objectFiledName" type="List"  />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.selectedobject}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.objectFiledName}" action="{!c.doInit}"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <div>
+        <h1>Data Tables</h1>
+        <lightning:datatable
+                             keyField="id"
+                             data="{!v.data}"
+                             columns="{!v.columns}"
+                             hideCheckboxColumn="true"/>
+    </div>
+</aura:component>

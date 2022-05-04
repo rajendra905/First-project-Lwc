@@ -1,0 +1,24 @@
+<template>
+    <template if:true={userdata}>
+        <td style="width:82px;"><img src={userdata.userDetail.MediumPhotoUrl} style="text-align:center; padding:5px;">
+        </td>
+        <td style="padding-left:15px; vertical-align:top;width:300px;">
+            <div style="font-size:15px;"><b>{userdata.userDetail.Name}</b></div>
+            <div style="font-size:12px;margin-bottom:5px;">{userdata.userDetail.Email}</div>
+        </td>
+        <td style="padding-left:100px; padding-top:10px; vertical-align:top;">
+            <lightning-badge label={userdata.taskCount}></lightning-badge>
+        </td>
+        <td style="padding-left:10px; vertical-align:top;">
+            <lightning-icon style=" --sds-c-icon-color-foreground: black;
+            --sds-c-icon-color-background:#fff;  cursor: pointer;" icon-name="action:new_note" onclick={handleTask}>>
+            </lightning-icon>
+        </td>
+        <div class="slds-around_large" style="width:350px;margin: 5px 5px 5px 20px;">
+            <lightning-progress-bar size="large" value={userdata.taskCompletedPercentage} variant="circular">
+            </lightning-progress-bar>
+        </div>
+        </br>
+        </br>
+    </template>
+</template>

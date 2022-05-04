@@ -1,0 +1,55 @@
+<apex:page controller="EmailController" showHeader="false" sidebar="false">
+  
+    <apex:form >   
+        <apex:pageBlock title="Email Send" id="pb">            
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <output>To</output>
+                    <input type="text" value="{!selectedContacts}"/>
+                    <br/>
+                    <br/>
+                    <output>Cc</output>
+                    <input type="text" value="{!contactCC}"/>
+                    <br/>
+                    <br/>
+                    <output>BCc</output>
+                    <input type="text" value="{!contactBcc}"/>
+                    <br/>
+                    <br/>
+                    
+                    <output>Subject</output>
+                    <input type="text" value="{!contactSubject}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <output>Body</output>
+                    <apex:inputTextarea style="width:75% ; height:100px;"  value="{!contactBody}"/>
+                    
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Send Email" action="{!sendEmail}" style="float:right" reRender="pb"  /> 
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!wrapContactList}" var="conWrap">
+                    <apex:column >
+                        <apex:facet name="header">
+                            <!--  <apex:inputCheckbox onclick="selectAllCheckboxes(this,'inputId')">
+<apex:actionSupport event="onchange" action="{!processSelected}" reRender="pb"/>
+</apex:inputCheckbox>-->
+                            <apex:inputCheckbox id="mainBox" value="{!mainBoxValue}" onChange="CallAction();return false;">
+                                <apex:actionSupport event="onclick" action="{!checkUncheckAll}" reRender="pb"/>
+                            </apex:inputCheckbox>
+                            
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!conWrap.selected}"  id="inputId">
+                            <apex:actionSupport event="onchange" action="{!processSelected}" reRender="pb"/>
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column value="{!conWrap.con.Name}"/>
+                    <apex:column value="{!conWrap.con.Email}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

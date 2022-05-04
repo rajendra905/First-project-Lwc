@@ -1,0 +1,22 @@
+<template>
+          <div class="slds-m-around_medium">
+                   
+                    <template for:each={routeDetail} for:item="data">
+                              <tr key={data}>
+                                       <td style="margin: 10px; padding:10px">
+                                        <lightning-icon
+                                        icon-name={iconName}
+                                        ></lightning-icon>
+                                       </td >
+                                       <td style="margin: 10px; padding:10px">via {data.Route}</td>
+                                       <td style="margin: 10px; padding:10px">{data.Hour} h  min {data.Minutes} </td>
+                              </tr>
+                              <tr key={data}>
+                                        <td></td>
+                                        <td  style="margin: 10px; padding:10px"> Fastest route, despite the usual traffic</td>
+                                        <td  style="margin: 10px; padding:10px">{data.Distance} KM </td>
+                              </tr>
+                              
+                    </template>
+          </div>
+</template>

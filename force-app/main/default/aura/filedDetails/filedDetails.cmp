@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride" access="global" controller="GetObjectDetailsController" >
+    
+    <aura:method name="sampleMethod" action="{!c.sampleMethod}" access="public"> 
+        <aura:attribute name="selectedObjectName" type="String"/> 
+    </aura:method>
+    
+    <aura:attribute name="selectedobject" type="String" />
+    <aura:attribute name="objectFiledName" type="List"  />
+    <aura:handler name="init" value="{!this}" action="{!c.doAction}" />
+    <aura:attribute name="showDataTabels" type="Boolean" default="false"/>
+    <lightning:dualListbox name="Object Field Name"
+                           sourceLabel="Filed Name Available"
+                           selectedLabel="Selected Filed Name"
+                           options="{!v.objectFiledName}"
+                           onchange="{! c.handleChangeFiledName }"
+                           />
+    <aura:if isTrue="{!v.showDataTabels}">
+        <c:dataTablesShowData aura:id='childCmp'></c:dataTablesShowData>
+    </aura:if>
+    
+</aura:component>

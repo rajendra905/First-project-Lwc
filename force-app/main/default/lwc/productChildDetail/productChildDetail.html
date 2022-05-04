@@ -1,0 +1,14 @@
+<template>
+         <template if:true={productDetailShow}>
+                    <lightning-card title="Product Detail" >
+                              <img src={noImage}>
+                              <template if:true={productData} >
+                                        <div class="slds-m-left_medium">
+                                                  
+                                                  <p style="text-align: center;"><b>{productData.Name}</b></p>
+                                                   <p>Product Code : {productData.ProductCode}</p>
+                                        </div>
+                              </template>  
+                    </lightning-card>
+         </template>
+</template>

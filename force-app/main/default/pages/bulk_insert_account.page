@@ -1,0 +1,27 @@
+<apex:page title="Bulk Account" showHeader="false" controller="BulkInsertAccountController" >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons style="float:left">
+                <apex:commandButton value="Save" action="{!saveAccount}" immediate="false"/>
+                <apex:commandButton value="AddNew" action="{!addRow}" immediate="true"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" immediate="true"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" title="Insert Data" collapsible="false">
+                <apex:variable var="rowNo" value="{!0}"/>
+                <apex:pageBlockTable value="{!accountData}" var="account">
+                    <apex:column headerValue="Sr.No">
+                        <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                        {!rowNo}
+                    </apex:column>
+                    <apex:column headerValue="Account Name" >
+                        <apex:inputField value="{!account.Name}"/>
+                    </apex:column>
+                    <apex:column headerValue="Rating" >
+                        <apex:inputField value="{!account.Rating}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

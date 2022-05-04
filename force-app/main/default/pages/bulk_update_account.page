@@ -1,0 +1,27 @@
+<apex:page title="Bulk Update Account" showHeader="false" controller="BulkUpdateAccountController" >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!updateAccount}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" title="Update Data" collapsible="false">
+                <apex:variable var="rowNo" value="{!0}"/>
+                <apex:pageBlockTable value="{!accountList}" var="account">
+                    <apex:column headerValue="Sr.No">
+                        <apex:variable var="rowNo" value="{!rowNo+1}"/>
+                        {!rowNo}
+                    </apex:column>
+                   
+                    <apex:column headerValue="First Name" >
+                        <apex:inputField value="{!account.Name}"/>
+                    </apex:column>
+                    <apex:column headerValue="Rating" >
+                        <apex:inputField value="{!account.Rating}" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

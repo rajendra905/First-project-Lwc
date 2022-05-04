@@ -1,0 +1,16 @@
+<apex:page showHeader="false"  sidebar="false" title="Contact" controller="ContactAttachmentController">
+    <apex:form > 
+       
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Contact" collapsible="false" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Contact Select </apex:outputLabel>
+                    <apex:selectList size="1" value="{!getName}">
+                        <apex:selectOptions value="{!contactName}" >
+                        </apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

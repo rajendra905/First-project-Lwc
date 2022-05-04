@@ -1,0 +1,36 @@
+<apex:page showHeader="false" title="Lead List" controller="LeadController">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Search Lead" collapsible="false">
+            	<apex:pageBlockSectionItem >
+                	<apex:outputLabel >Name </apex:outputLabel>
+                    <apex:inputText value="{!searchText}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                	<apex:commandButton value="Search" action="{!doSearch}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1" title="Lead List" collapsible="false">        	
+                <apex:pageBlockTable value="{!leadList}" var="lead">
+                    <apex:column headerValue="Action">
+                        <apex:commandLink value="Edit" action="{!editLead}">
+                            <apex:param name="editId" value="{!lead.Id}" assignTo="{!leadId}" />
+                        </apex:commandLink> || 
+                        <apex:commandLink value="Delete" action="{!deleteLead}">
+                            <apex:param name="deleteId" value="{!lead.Id}" assignTo="{!leadId}" />
+                        </apex:commandLink> ||
+                        <apex:commandLink value="Clone" action="{!cloneLead}">
+                            <apex:param name="cloneId" value="{!lead.Id}" assignTo="{!leadId}"></apex:param>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column value="{!lead.FirstName}" />
+                    <apex:column value="{!lead.LastName}" />
+                    <apex:column value="{!lead.Company}" />
+                    <apex:column value="{!lead.Status}" />
+                    <apex:column value="{!lead.Phone}" />
+                </apex:pageBlockTable>
+                <apex:commandButton value="Next" action="{!handleNext}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+ 	</apex:form>
+</apex:page>

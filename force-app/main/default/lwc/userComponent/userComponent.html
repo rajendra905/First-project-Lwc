@@ -1,0 +1,22 @@
+<template>
+          <lightning-card title="Users Management Screen" class="slds-m-left_large">
+                    <div class="slds-grid slds-gutters">
+                              <div class="slds-m-around_medium slds-col">
+                                        <lightning-input type="search" value={searchText}
+                                                  placeholder="Serach Users ...." class="forInputName"
+                                                  onchange={handleUser}></lightning-input>
+                                        <hr>
+                                        <template for:each={userListData} for:item="user">
+                                                  <c-task-component key={user.Id} userdata={user}
+                                                            ontaskdetail={handleTaskList}>
+                                                  </c-task-component>
+                                        </template>
+                                        <template if:true={isTask}>
+                                                  <c-task-list-dialog-box alltasklist={allTaskList} userid={userId}
+                                                            onclosemodel={handleClose}
+                                                            onrefreshtasklist={handleRefresh}></c-task-list-dialog-box>
+                                        </template>
+                              </div>
+                    </div>
+          </lightning-card>
+</template>
